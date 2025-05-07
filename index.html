@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JobSphere</title>
+    <!-- Bootstrap Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <!-- Bootstrap CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!--CSS-->
+    <style>
+      .hero-section {
+        margin-top: 80px; /* or whatever looks good */
+      }
+      .animate__fadeIn {
+        animation-duration: 1s; /* Increase the duration */
+        animation-timing-function: ease-in; /* Make it smoother */
+      }
+      /* Navbar Item Styling */
+      .navbar-nav .nav-item .nav-link {
+        color: #ffffff; /* Whitish text color */
+        position: relative; /* Necessary for positioning the underline */
+        display: inline-block; /* Ensures the width adjusts according to text */
+        transition: color 0.3s ease; /* Smooth color transition */
+      }
+      /* On Hover: Change color */
+      .navbar-nav .nav-item .nav-link:hover {
+        color: #f1f1f1; /* Slightly lighter color on hover */
+      }
+      /* Underline effect from left to right */
+      .navbar-nav .nav-item .nav-link::after {
+        content: "";
+        display: block;
+        width: 0; /* Initially the width is 0 */
+        height: 1px;
+        background-color: #fff; /* White underline */
+        transition: width 0.5s ease; /* Animation for the underline width */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .navbar-nav .nav-item .nav-link:hover::after {
+        width: 100%; /* On hover, underline width expands to 100% */
+      }
+      /* Ensuring nav links are positioned correctly for the effect */
+      .navbar-nav .nav-item {
+        position: relative;
+      }
+      .navbar {
+        border-radius: 0px; /* Adjust to reduce the roundness, 2250px may be too extreme */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        background-color: #479686; /* Background color */
+        padding: 5px 10px; /* Reduce the padding for a smaller navbar */
+      }
+
+      .navbar-nav .nav-item .nav-link {
+        color: #ffffff;
+        transition: color 0.3s ease;
+        font-size: 0.9rem; /* Reduce font size to make the navbar more compact */
+      }
+      /* On Hover: Change color */
+      .navbar-nav .nav-item .nav-link:hover {
+        color: #f1f1f1;
+      }
+      .move-left {
+        margin-left: 190px;
+      }
+      .icon-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 8px; /* Optional: rounded corners */
+        border: none;
+      }
+      .icon-hover:hover {
+        transform: scale(1.05); /* Slightly enlarge the item */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+      }
+      .card-body {
+        padding: 2rem; /* Adjust padding inside the card */
+      }
+      .navbar-logo {
+        height: 150px; /* Adjust this value to fit your navbar */
+        width: auto; /* Ensures the logo keeps its aspect ratio */
+      }
+      .filter-btn:hover {
+        background-color: #00bfff;
+        color: black; /* optional: to make text white on hover */
+        border-color: black; /* optional: match the border with background */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-md navbar-light"
+      style="background-color: #00bfff"
+    >
+      <div class="container">
+        <a class="navbar-brand text-white" href="index.html">
+          <img src="images/logo1.png" alt="JobSphere Logo" class="navbar-logo"
+        /></a>
+
+        <!-- Hamburger button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#jobs-listing"
+                >Browse Jobs</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="admin.html">Manage Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section
+      class="bg-light text-center text-md-start pt-2 pb-5 px-3"
+      style="min-height: 80vh"
+    >
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left Side: Text Content -->
+          <div class="col-md-6 mb-4 mb-md-0">
+            <h1
+              class="mb-3 animate__animated animate__fadeIn animate__delay-0.1s"
+              style="font-size: 3rem"
+            >
+              Find Your Dream Job with JobSphere <i class="bi bi-person"> </i>
+            </h1>
+            <p
+              class="animate__animated animate__fadeIn animate__delay-1s"
+              style="font-size: 1.25rem; font-family: monospace"
+            >
+              At JobSphere, we connect top talent with leading companies.
+              Whether you're looking to start a new career or take the next
+              step, we have the right opportunity for you.
+            </p>
+            <p
+              class="mb-4 animate__animated animate__fadeIn animate__delay-2s"
+              style="font-size: 1.25rem; font-family: monospace"
+            >
+              Browse through thousands of job listings, apply effortlessly, and
+              advance your career with confidence.
+            </p>
+            <a
+              href="#jobs-listing"
+              class="btn btn-lg"
+              style="background-color: #00bfff; color: white"
+            >
+              Browse Jobs
+            </a>
+          </div>
+          <!-- Right Side: Image -->
+          <div class="col-md-6 text-center">
+            <img
+              src="images/search-engine-32.png"
+              alt="Job Opportunities"
+              class="img-fluid rounded"
+              style="max-width: 100%; height: auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- How It Works Section -->
+    <section class="p-5">
+      <div class="container text-center">
+        <h2 class="mb-4" style="font-size: 2.5rem">How It Works</h2>
+        <div class="row">
+          <!-- Card 1 -->
+          <div class="col-md-3">
+            <div
+              class="card icon-hover"
+              style="
+                border: none;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              "
+            >
+              <div class="card-body text-center">
+                <div class="icon" style="font-size: 3rem; color: #00bfff">
+                  <i class="fas fa-search"></i>
+                </div>
+                <h4 class="mt-3">Search Jobs</h4>
+                <p>
+                  Browse a wide range of job listings from top companies across
+                  different industries.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="col-md-3">
+            <div
+              class="card icon-hover"
+              style="
+                border: none;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              "
+            >
+              <div class="card-body text-center">
+                <div class="icon" style="font-size: 3rem; color: #00bfff">
+                  <i class="fas fa-paper-plane"></i>
+                </div>
+                <h4 class="mt-3">Apply Online</h4>
+                <p>
+                  Apply directly to jobs with just a few clicks. Your resume and
+                  profile are easily submitted.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="col-md-3">
+            <div
+              class="card icon-hover"
+              style="
+                border: none;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              "
+            >
+              <div class="card-body text-center">
+                <div class="icon" style="font-size: 3rem; color: #00bfff">
+                  <i class="fas fa-briefcase"></i>
+                </div>
+                <h4 class="mt-3">Get Hired</h4>
+                <p>
+                  Once your application is shortlisted, companies will reach out
+                  for interviews. Get hired and start your new career!
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="col-md-3">
+            <div
+              class="card icon-hover"
+              style="
+                border: none;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              "
+            >
+              <div class="card-body text-center">
+                <div class="icon" style="font-size: 3rem; color: #00bfff">
+                  <i class="fas fa-headset"></i>
+                </div>
+                <h4 class="mt-3">We're here to help</h4>
+                <p>
+                  Our team is available to guide you through the process. Feel
+                  free to reach out if you need assistance or have any
+                  questions!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Jobs Listing Section -->
+    <section id="jobs-listing" class="container py-5">
+      <h2 class="text-center mb-4">Available Job Listings</h2>
+      <!-- Filter Buttons -->
+      <div class="text-center mb-4">
+        <button
+          class="btn mx-1 filter-btn"
+          style="background-color: #00bfff"
+          data-filter="all"
+        >
+          All
+        </button>
+        <button
+          class="btn mx-1 filter-btn"
+          style="background-color: #00bfff"
+          data-filter="Web Development"
+        >
+          Web Development
+        </button>
+        <button
+          class="btn mx-1 filter-btn"
+          style="background-color: #00bfff"
+          data-filter="Design"
+        >
+          Design
+        </button>
+        <button
+          class="btn mx-1 filter-btn"
+          style="background-color: #00bfff"
+          data-filter="Marketing"
+        >
+          Marketing
+        </button>
+        <button
+          class="btn mx-1 filter-btn"
+          style="background-color: #00bfff"
+          data-filter="Data & Analytics"
+        >
+          Data & Analytics
+        </button>
+      </div>
+
+      <!-- Search Box -->
+      <div class="text-center mb-5">
+        <input
+          type="text"
+          id="searchInput"
+          class="form-control mx-auto"
+          placeholder="Search jobs by title..."
+          style="max-width: 400px"
+        />
+      </div>
+      <!-- Jobs Grid -->
+      <div class="row" id="jobsGrid">
+        <!-- Example Job Card -->
+        <div
+          class="col-12 col-sm-6 col-md-4 mb-4 job-card"
+          data-category="Web Development"
+          data-title="Frontend Developer"
+        >
+          <div class="card shadow-sm hover-effect">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Frontend Developer</h5>
+              <p class="card-text mb-1"><strong>Company :</strong> TechCorp</p>
+              <p class="card-text mb-1">
+                <strong>Location :</strong> Mumbai, India
+              </p>
+              <p class="card-text mb-1">
+                <strong>Job Type : </strong
+                ><span class="badge bg-success">Remote</span>
+                <span class="badge bg-primary">Full-Time</span>
+              </p>
+              <p class="card-text mb-1"><strong>Salary :</strong> ₹5–8 LPA</p>
+              <p class="card-text mb-1">
+                <strong>Category :</strong> Web Development
+              </p>
+              <p class="card-text text-muted mt-3">
+                We are looking for a creative frontend developer experienced in
+                React.js, HTML, CSS, and JavaScript, with a flair for design and
+                building responsive interfaces.
+              </p>
+              <a
+                href="frontenddp.html"
+                class="btn w-100 mt-3"
+                style="background-color: #00bfff"
+                >Apply Now</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend Developer -->
+        <div
+          class="col-12 col-sm-6 col-md-4 mb-4 job-card"
+          data-category="Web Development"
+          data-title="Backend Developer"
+        >
+          <div class="card shadow-sm hover-effect">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Backend Developer</h5>
+              <p class="card-text mb-1">
+                <strong>Company :</strong> CodeMasters
+              </p>
+              <p class="card-text mb-1">
+                <strong>Location :</strong> Bengaluru, India
+              </p>
+              <p class="card-text mb-1">
+                <strong>Job Type : </strong>
+                <span class="badge bg-success">On-Site</span>
+                <span class="badge bg-primary">Full-Time</span>
+              </p>
+              <p class="card-text mb-1"><strong>Salary :</strong> ₹6–10 LPA</p>
+              <p class="card-text mb-1">
+                <strong>Category :</strong> Web Development
+              </p>
+              <p class="card-text text-muted mt-3">
+                Seeking a skilled backend developer proficient in Node.js,
+                Express, and MongoDB. Strong understanding of API development
+                and database design required.
+              </p>
+              <a
+                href="backenddp.html"
+                class="btn w-100 mt-3"
+                style="background-color: #00bfff"
+                >Apply Now</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- UI/UX Designer -->
+        <div
+          class="col-12 col-sm-6 col-md-4 mb-4 job-card"
+          data-category="Design"
+          data-title="UI/UX Designer"
+        >
+          <div class="card shadow-sm hover-effect">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">UI/UX Designer</h5>
+              <p class="card-text mb-1"><strong>Company :</strong> Designify</p>
+              <p class="card-text mb-1">
+                <strong>Location :</strong> Pune, India
+              </p>
+              <p class="card-text mb-1">
+                <strong>Job Type : </strong
+                ><span class="badge bg-success">Remote</span>
+                <span class="badge bg-primary">Contract</span>
+              </p>
+              <p class="card-text mb-1"><strong>Salary :</strong> ₹4–7 LPA</p>
+              <p class="card-text mb-1"><strong>Category:</strong> Design</p>
+              <p class="card-text text-muted mt-3">
+                We are hiring a talented UI/UX designer to create intuitive,
+                beautiful, and user-friendly designs for our mobile and web
+                applications. Experience with Figma and Adobe XD preferred.
+              </p>
+              <a
+                href="uiuxd.html"
+                class="btn w-100 mt-3"
+                style="background-color: #00bfff"
+                >Apply Now</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Digital Marketing Specialist -->
+        <div
+          class="col-12 col-sm-6 col-md-4 mb-4 job-card"
+          data-category="Marketing"
+          data-title="Digital Marketing Specialist"
+        >
+          <div class="card shadow-sm hover-effect">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Digital Marketing Specialist</h5>
+              <p class="card-text mb-1">
+                <strong>Company :</strong> MarketingPro
+              </p>
+              <p class="card-text mb-1">
+                <strong>Location :</strong> Delhi, India
+              </p>
+              <p class="card-text mb-1">
+                <strong>Job Type : </strong>
+                <span class="badge bg-success">Remote</span>
+                <span class="badge bg-primary">Part-Time</span>
+              </p>
+              <p class="card-text mb-1"><strong>Salary :</strong> ₹6–10 LPA</p>
+              <p class="card-text mb-1"><strong>Category:</strong> Marketing</p>
+              <p class="card-text text-muted mt-3">
+                Looking for a Digital Marketing Specialist skilled in SEO,
+                Google Ads, social media marketing, and content strategy.
+                Flexible hours and remote work environment offered.
+              </p>
+              <a
+                href="digitalmarksp.html"
+                class="btn w-100 mt-3"
+                style="background-color: #00bfff"
+                >Apply Now</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Data Analyst -->
+        <div
+          class="col-12 col-sm-6 col-md-4 mb-4 job-card"
+          data-category="Data & Analytics"
+          data-title="Data Analyst"
+        >
+          <div class="card shadow-sm hover-effect">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Data Analyst</h5>
+              <p class="card-text mb-1"><strong>Company :</strong> DataX</p>
+              <p class="card-text mb-1">
+                <strong>Location :</strong> Hyderabad, India
+              </p>
+              <p class="card-text mb-1">
+                <strong>Job Type : </strong>
+                <span class="badge bg-success">Hybrid</span>
+                <span class="badge bg-primary">Full-Time</span>
+              </p>
+              <p class="card-text mb-1"><strong>Salary :</strong> ₹5–9 LPA</p>
+              <p class="card-text mb-1">
+                <strong>Category :</strong> Data & Analytics
+              </p>
+              <p class="card-text text-muted mt-3">
+                We are hiring a data analyst who can collect, clean, and
+                interpret large datasets to support business decisions.
+                Experience with SQL, Excel, and data visualization tools
+                required.
+              </p>
+              <a
+                href="dataanlyst.html"
+                class="btn w-100 mt-3"
+                style="background-color: #00bfff"
+                >Apply Now</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Custom Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const jobCards = document.querySelectorAll(".job-card");
+        const searchInput = document.getElementById("searchInput");
+        let currentFilter = "all";
+        let currentSearch = "";
+        // Function to update job cards based on the filter and search
+        function updateJobCards() {
+          jobCards.forEach((card) => {
+            const category = card.getAttribute("data-category");
+            const title = card.getAttribute("data-title").toLowerCase();
+            const matchesFilter =
+              currentFilter === "all" || currentFilter === category;
+            const matchesSearch = title.includes(currentSearch);
+
+            if (matchesFilter && matchesSearch) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        }
+        // Handle filter button clicks
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Remove 'active' class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add 'active' class to the clicked button
+            button.classList.add("active");
+
+            // Update current filter and show relevant job cards
+            currentFilter = button.getAttribute("data-filter");
+            updateJobCards();
+          });
+        });
+        // Handle search input keyup event
+        searchInput.addEventListener("keyup", function () {
+          currentSearch = this.value.toLowerCase();
+          updateJobCards();
+        });
+        // Initialize the job cards display on page load
+        updateJobCards();
+      });
+    </script>
+    <!-- Hover effect styles -->
+    <style>
+      .hover-effect:hover {
+        transform: scale(1.03);
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      .filter-btn.active {
+        background-color: #00bfff;
+        color: black;
+        cursor: pointer;
+        padding: 8px 20px;
+        border-radius: 20px;
+        border: 2px solid #00bfff;
+      }
+      .filter-btn:hover {
+        background-color: #00bfff;
+        color: black;
+      }
+    </style>
+    <!-- Footer -->
+    <footer
+      class="text-light fw-bold text-center py-4 mt-5"
+      style="background-color: #00bfff"
+    >
+      <div class="container">
+        <p class="mb-0">&copy; 2025 JobSphere. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Panel - NactorWorks</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --main-color: #00bfff;
+      }
+
+      .bg-main {
+        background-color: var(--main-color) !important;
+      }
+
+      .btn-main {
+        background-color: var(--main-color);
+        color: #fff;
+      }
+
+      .btn-main:hover {
+        background-color: #009acd;
+        color: #fff;
+      }
+
+      .navbar-brand img {
+        height: 80px;
+      }
+
+      @media (max-width: 576px) {
+        .navbar-brand img {
+          height: 60px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-main py-2">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo1.png" alt="JobSphere Logo" />
+        </a>
+        <span class="navbar-text text-white fw-bold ms-4 h4 mb-0">
+          Admin Panel
+        </span>
+
+        <!-- Toggler for mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#adminNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="adminNavbar"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="admin-dashboard.html"
+                >Dashboard</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="admin-manage-jobs.html"
+                >Manage Jobs</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="logout.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Admin Dashboard -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="mb-4">Manage Jobs</h2>
+
+        <!-- Add New Job Form -->
+        <form id="jobForm" class="mb-5">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                id="jobTitle"
+                placeholder="Job Title"
+                required
+              />
+            </div>
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                id="jobLocation"
+                placeholder="Location"
+                required
+              />
+            </div>
+            <div class="col-12">
+              <textarea
+                class="form-control"
+                id="jobDescription"
+                rows="3"
+                placeholder="Job Description"
+                required
+              ></textarea>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-main">Add Job</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Jobs Table -->
+        <table class="table table-striped" id="jobsTable">
+          <thead class="table-primary">
+            <tr>
+              <th>Job Title</th>
+              <th>Location</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Job entries will appear here dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <script>
+      // 🔒 Protect the page
+      if (localStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "admin-login.html";
+      }
+
+      // ✅ Job management logic
+      const jobForm = document.getElementById("jobForm");
+      const jobsTable = document
+        .getElementById("jobsTable")
+        .querySelector("tbody");
+
+      jobForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const title = document.getElementById("jobTitle").value;
+        const location = document.getElementById("jobLocation").value;
+        const description = document.getElementById("jobDescription").value;
+
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+          <td>${title}</td>
+          <td>${location}</td>
+          <td>${description}</td>
+          <td>
+            <button class="btn btn-sm btn-primary me-2 edit-btn">Edit</button>
+            <button class="btn btn-sm btn-danger delete-btn">Delete</button>
+          </td>
+        `;
+
+        jobsTable.appendChild(newRow);
+        jobForm.reset();
+      });
+
+      jobsTable.addEventListener("click", function (e) {
+        if (e.target.classList.contains("delete-btn")) {
+          e.target.closest("tr").remove();
+        }
+
+        if (e.target.classList.contains("edit-btn")) {
+          const row = e.target.closest("tr");
+          const title = row.children[0].textContent;
+          const location = row.children[1].textContent;
+          const salary = "N/A"; // Replace with actual salary if needed
+
+          // Redirect to edit page with sample ID, e.g., 1
+          window.location.href = `edit-job.html?jobId=1`;
+        }
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

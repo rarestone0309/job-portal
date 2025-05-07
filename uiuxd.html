@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Job Details-UI/UX Designer</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Custom navbar size */
+      .navbar-nav .nav-item .nav-link {
+        color: #ffffff; /* Whitish text color */
+        position: relative; /* Necessary for positioning the underline */
+        display: inline-block; /* Ensures the width adjusts according to text */
+        transition: color 0.3s ease; /* Smooth color transition */
+      }
+
+      /* On Hover: Change color */
+      .navbar-nav .nav-item .nav-link:hover {
+        color: #f1f1f1; /* Slightly lighter color on hover */
+      }
+
+      /* Underline effect from left to right */
+      .navbar-nav .nav-item .nav-link::after {
+        content: "";
+        display: block;
+        width: 0; /* Initially the width is 0 */
+        height: 1px;
+        background-color: #fff; /* White underline */
+        transition: width 0.5s ease; /* Animation for the underline width */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+
+      .navbar-nav .nav-item .nav-link:hover::after {
+        width: 100%; /* On hover, underline width expands to 100% */
+      }
+
+      /* Ensuring nav links are positioned correctly for the effect */
+      .navbar-nav .nav-item {
+        position: relative;
+      }
+      .navbar {
+        border-radius: 0px; /* Adjust to reduce the roundness, 2250px may be too extreme */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        background-color: #479686; /* Background color */
+        padding: 5px 10px; /* Reduce the padding for a smaller navbar */
+      }
+
+      .navbar-nav .nav-item .nav-link {
+        color: #ffffff;
+        transition: color 0.3s ease;
+        font-size: 0.9rem; /* Reduce font size to make the navbar more compact */
+      }
+
+      /* On Hover: Change color */
+      .navbar-nav .nav-item .nav-link:hover {
+        color: #f1f1f1;
+      }
+      .navbar-logo {
+        height: 150px; /* Adjust this value to fit your navbar */
+        width: auto; /* Ensures the logo keeps its aspect ratio */
+      }
+      /* Card Styling */
+      .card {
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: #ffffff;
+      }
+
+      .card:hover {
+        transform: translateY(-5px); /* Subtle upward movement on hover */
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1); /* Larger shadow on hover */
+      }
+
+      /* Hover effect for smooth transition */
+      .hover-card {
+        transition: all 0.3s ease-in-out;
+      }
+
+      /* Form field styling */
+      .form-control {
+        border-radius: 5px;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: #007bff; /* Blue border on focus */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle blue glow */
+      }
+
+      /* Button Styling */
+      .btn-success {
+        background-color: #28a745; /* Green color */
+        border: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-success:hover {
+        background-color: #218838; /* Darker green on hover */
+        cursor: pointer;
+      }
+
+      .btn {
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      /* Responsive design: Mobile-friendly */
+      @media (max-width: 576px) {
+        .card {
+          padding: 20px;
+        }
+
+        .btn {
+          font-size: 14px;
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-md navbar-light"
+      style="background-color: #00bfff"
+    >
+      <div class="container">
+        <a class="navbar-brand text-white" href="index.html">
+          <img src="images/logo1.png" alt="JobSphere Logo" class="navbar-logo"
+        /></a>
+
+        <!-- Hamburger button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="index.html#jobs-listing"
+                >Browse Jobs</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="admin.html">Manage Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Job Detail -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="mb-4">UI/UX Designer</h2>
+        <p><strong>Location:</strong> Pune, India</p>
+        <p><strong>Job Type:</strong> Contract</p>
+        <p><strong>Salary:</strong> ₹4–7 LPA</p>
+
+        <h4 class="mt-5">Job Description</h4>
+        <p>
+          We are hiring a talented UI/UX Designer to create intuitive,
+          user-friendly designs for web and mobile apps. You’ll work closely
+          with developers and product managers to design engaging and seamless
+          experiences.
+        </p>
+
+        <h4 class="mt-4">Requirements</h4>
+        <ul>
+          <li>2+ years of experience in UI/UX design</li>
+          <li>Proficiency in design tools like Figma, Sketch, or Adobe XD</li>
+          <li>Experience with user research, wireframing, and prototyping</li>
+          <li>Strong understanding of user-centered design principles</li>
+        </ul>
+
+        <a
+          href="#apply"
+          class="btn text-white mt-4"
+          style="background-color: #007bff"
+          >Apply Now</a
+        >
+      </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="apply" class="py-5 bg-light">
+      <div class="container">
+        <h3 class="text-center mb-4">Apply for this job</h3>
+
+        <!-- Card Wrapper with Animation -->
+        <div class="card shadow-lg p-4 rounded-4 hover-card">
+          <form action="https://formspree.io/f/mdkgzkov" method="POST">
+            <div class="mb-3">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="fullName"
+                name="Full Name"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="emailAddress" class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="emailAddress"
+                name="Email"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="resumeLink" class="form-label">
+                Paste Resume Link (Google Drive or Dropbox)
+              </label>
+              <input
+                type="url"
+                class="form-control"
+                id="resumeLink"
+                name="Resume Link"
+                placeholder="https://drive.google.com/..."
+                required
+              />
+              <small class="form-text text-muted">
+                Upload your resume to Google Drive or Dropbox and paste the
+                public shareable link here.
+              </small>
+            </div>
+
+            <!-- Help Button -->
+            <div class="mb-3 text-end">
+              <button
+                class="btn btn-sm btn-outline-secondary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#resumeHelp"
+                aria-expanded="false"
+                aria-controls="resumeHelp"
+              >
+                Need Help?
+              </button>
+            </div>
+
+            <!-- Collapsible Help Instructions -->
+            <div class="collapse" id="resumeHelp">
+              <div class="card card-body bg-white border rounded-3">
+                <h6 class="mt-2">How to share your resume link:</h6>
+                <p class="small fw-bold mb-1">Google Drive:</p>
+                <ol class="small text-muted">
+                  <li>
+                    Go to
+                    <a href="https://drive.google.com/" target="_blank"
+                      >Google Drive</a
+                    >
+                    and upload your resume (PDF format).
+                  </li>
+                  <li>
+                    Right-click the uploaded file and click
+                    <strong>"Get link"</strong>.
+                  </li>
+                  <li>
+                    Under “General access,” choose
+                    <strong>“Anyone with the link”</strong> and set it to
+                    <strong>Viewer</strong>.
+                  </li>
+                  <li>
+                    Click “Copy link” and paste it into the Resume Link field
+                    above.
+                  </li>
+                </ol>
+
+                <p class="small fw-bold mb-1">Dropbox:</p>
+                <ol class="small text-muted">
+                  <li>
+                    Go to
+                    <a href="https://www.dropbox.com/" target="_blank"
+                      >Dropbox</a
+                    >
+                    and upload your resume.
+                  </li>
+                  <li>
+                    Hover over the uploaded file and click
+                    <strong>"Share"</strong>.
+                  </li>
+                  <li>
+                    Click <strong>"Copy link"</strong> and ensure the link is
+                    set to <strong>Anyone with the link can view</strong>.
+                  </li>
+                  <li>Paste the link into the Resume Link field above.</li>
+                </ol>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn text-white w-100 mt-4"
+              style="background-color: #00bfff"
+            >
+              Submit Application
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="text-light fw-bold text-center py-4 mt-5"
+      style="background-color: #00bfff"
+    >
+      <div class="container">
+        <p class="mb-0">&copy; 2025 JobSphere. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
